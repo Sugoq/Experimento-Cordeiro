@@ -11,11 +11,7 @@ public class PlayerController : MonoBehaviour
     GameObject currentTouchingObject;
     Vector2 movement;
     Rigidbody2D rb;
-    
-    public Animator p1Animator;
-    public SpriteRenderer spriteRenderer;
-    public Rigidbody2D rigidBody;
-    float jump = 0;
+
 
     void Start()
     {
@@ -26,11 +22,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
-        if(Input.GetKeyDown(KeyCode.Space) && canDrag)
+        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if (Input.GetKeyDown(KeyCode.Space) && canDrag)
         {
-            if(!isDragging)
+            if (!isDragging)
             {
                 isDragging = true;
                 currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
@@ -41,39 +37,13 @@ public class PlayerController : MonoBehaviour
                 currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             }
         }
-        
-        if (Input.GetButtonDown("Jump"))
-        {
-            p1Animator.SetBool("Jump", true);
-        }
-
-        Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), jump);
-        transform.Translate(movement * speed * Time.deltaTime);
-        
-        if(Input.GetAxis("Horizontal") > 0)
-        {
-            p1Animator.SetBool("Walk", true);
-            spriteRenderer.flipX = false;
-        }
-        else if (Input.GetAxis("Horizontal") < 0)
-        {
-            p1Animator.SetBool("Walk", true);
-            spriteRenderer.flipX = true;
-        }
-        else
-        {
-            p1Animator.SetBool("Walk", false);
-        }                
-    } 
-
     }
-
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        rb.velocity = movement * speed;        
+        rb.velocity = movement * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Push"))
         {
@@ -82,7 +52,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+
+    void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Push"))
         {
@@ -94,46 +65,6 @@ public class PlayerController : MonoBehaviour
             canDrag = false;
             isDragging = false;
         }
+
     }
-
-  
-
-
-
-
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            p1Animator.SetBool("Jump", true);
-        }
-
-        Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), jump);
-        transform.Translate(movement * speed * Time.deltaTime);
-        
-        if(Input.GetAxis("Horizontal") > 0)
-        {
-            p1Animator.SetBool("Walk", true);
-            spriteRenderer.flipX = false;
-        }
-        else if (Input.GetAxis("Horizontal") < 0)
-        {
-            p1Animator.SetBool("Walk", true);
-            spriteRenderer.flipX = true;
-        }
-        else
-        {
-            p1Animator.SetBool("Walk", false);
-        }                
-    }
-
-    void Jump()
-    {
-        jump = 5f;
-    }
-
-    void Down()
-    {
-        jump = 0;
-    }
-
 }
