@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (Input.GetKeyDown(KeyCode.Space) && canDrag)
         {
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Push"))
+        if (collision.gameObject.GetComponent<TagsController>().HasTag("Push"))
         {
             canDrag = true;
             currentTouchingObject = collision.gameObject;
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Push"))
+        if (collision.gameObject.GetComponent<TagsController>().HasTag("Push"))
         {
             if (currentTouchingObject != null)
             {

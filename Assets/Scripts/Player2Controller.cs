@@ -4,38 +4,62 @@ using UnityEngine;
 
 public class Player2Controller : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    [SerializeField] bool isOnGround;
     public float speed;
-    public float jumpForce;
-    public float gravityMultiplier;
-    private bool isOnGround;
-    public bool isPlayer2Turn;
+    public float gravityIncrease;
+    Animator p2Animator;
+    SpriteRenderer spriteRenderer;
+    Rigidbody2D rb;
+    public float jumpForce = 0;
 
-    private void Start()
+    void Start()
     {
-        Physics2D.gravity *= gravityMultiplier;
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        p2Animator = GetComponent<Animator>();
+        Physics2D.gravity *= gravityIncrease;
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        float movement = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * movement * speed * Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if (Input.GetButtonDown("Jump"))
         {
-            Jump();
+            if (!isOnGround) return;
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            p2Animator.SetBool("Jump", true);
+            p2Animator.SetBool("IsOnGround", false);
+
             isOnGround = false;
         }
-    }
 
-    private void Jump()
-    {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+        float movement = Input.GetAxisRaw("Horizontal");
+        transform.Translate(Vector3.right * movement * speed * Time.deltaTime);
+
+        if (movement > 0)
+        {
+            p2Animator.SetBool("Walk", true);
+            spriteRenderer.flipX = false;
+        }
+        else if (movement < 0)
+        {
+            p2Animator.SetBool("Walk", true);
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            p2Animator.SetBool("Walk", false);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isOnGround = true;
+        if (collision.gameObject.GetComponent<TagsController>().HasTag("Ground"))
+        {
+            isOnGround = true;
+            p2Animator.SetBool("Jump", false);
+            p2Animator.SetBool("IsOnGround", true);
+        }
     }
 
 }

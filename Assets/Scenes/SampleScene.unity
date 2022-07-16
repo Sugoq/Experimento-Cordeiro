@@ -363,9 +363,10 @@ GameObject:
   - component: {fileID: 633247245}
   - component: {fileID: 633247244}
   - component: {fileID: 633247243}
+  - component: {fileID: 633247246}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,6 +464,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &633247246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633247242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558c43a41b144124d9765d65dff86524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - Ground
 --- !u!1 &855423654
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,10 +781,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a07f1055f7dd843837153e296c336a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOnGround: 0
   speed: 5
+  gravityIncrease: 0
   jumpForce: 10
-  gravityMultiplier: 5
-  isPlayer2Turn: 0
 --- !u!1001 &5131508176733437069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -824,22 +839,6 @@ PrefabInstance:
     - target: {fileID: 938672261293373691, guid: ba0205e81c69c9a4d89f7e70eb8f0867, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893652134109810247, guid: ba0205e81c69c9a4d89f7e70eb8f0867, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893652134109810247, guid: ba0205e81c69c9a4d89f7e70eb8f0867, type: 3}
-      propertyPath: m_BodyType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893652134109810247, guid: ba0205e81c69c9a4d89f7e70eb8f0867, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7893652134109810247, guid: ba0205e81c69c9a4d89f7e70eb8f0867, type: 3}
-      propertyPath: m_Constraints
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba0205e81c69c9a4d89f7e70eb8f0867, type: 3}
