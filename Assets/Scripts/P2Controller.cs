@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class P2Controller : MonoBehaviour
 {
     public float speed;
     public bool isPlayer1Turn;

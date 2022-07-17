@@ -537,4 +537,4 @@ MonoBehaviour:
   isOnGround: 0
   speed: 5
   gravityIncrease: 5
-  jumpForce: 0
+  jumpForce: 10

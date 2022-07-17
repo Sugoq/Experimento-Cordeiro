@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player2Controller : MonoBehaviour
+public class P1Controller : MonoBehaviour
 {
     [SerializeField] bool isOnGround;
     public float speed;
