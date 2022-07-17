@@ -24,20 +24,38 @@ public class P2Controller : MonoBehaviour
     {
         movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            rb.velocity = Vector2.zero;
+            Drag();
+            SwitchCharacter.instance.Switch();
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && canDrag)
         {
-            if (!isDragging)
-            {
-                isDragging = true;
-                currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            }
-            else
-            {
-                isDragging = false;
-                currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            }
+            Drag();
+        }
+
+
+    }
+
+    private void Drag()
+    {
+        if (currentTouchingObject == null) return;
+
+        
+        if (!isDragging)
+        {
+            isDragging = true;
+            currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
+        else
+        {
+            isDragging = false;
+            currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
     }
+
     void FixedUpdate()
     {
         rb.velocity = movement * speed;
