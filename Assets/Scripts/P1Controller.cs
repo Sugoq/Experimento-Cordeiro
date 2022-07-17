@@ -76,4 +76,9 @@ public class P1Controller : MonoBehaviour
         else return;
     }
 
+    public void Jump()
+    {
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
 }
