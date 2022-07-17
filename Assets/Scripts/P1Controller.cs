@@ -26,7 +26,7 @@ public class P1Controller : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             if (!isOnGround) return;
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            
             p2Animator.SetBool("Jump", true);
             p2Animator.SetBool("IsOnGround", false);
 
@@ -60,6 +60,11 @@ public class P1Controller : MonoBehaviour
             p2Animator.SetBool("Jump", false);
             p2Animator.SetBool("IsOnGround", true);
         }
+    }
+
+    public void Jump()
+    {
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
 }
