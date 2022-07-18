@@ -729,6 +729,7 @@ MonoBehaviour:
   isP1Turn: 0
   p1: {fileID: 2091202249}
   p2: {fileID: 855423654}
+  maxSwitchTimes: 2
 --- !u!4 &1723607858
 Transform:
   m_ObjectHideFlags: 0
@@ -937,9 +938,9 @@ MonoBehaviour:
   isOnGround: 0
   playerFoot1: {fileID: 1161680545}
   playerFoot2: {fileID: 135342876}
-  speed: 5
-  gravityIncrease: 5
-  jumpForce: 12
+  speed: 2
+  gravityIncrease: 2
+  jumpForce: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
