@@ -52,7 +52,7 @@ public class P2Controller : MonoBehaviour
         else
         {
             isDragging = false;
-            currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         }
     }
 
@@ -77,7 +77,7 @@ public class P2Controller : MonoBehaviour
         {
             if (currentTouchingObject != null)
             {
-                currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 currentTouchingObject = null;
             }
             canDrag = false;

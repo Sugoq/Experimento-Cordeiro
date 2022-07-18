@@ -14,16 +14,15 @@ public class P1Controller : MonoBehaviour
     public float rayDistance;
     float movement;
     public bool isJumping;
+    private bool jump;
     
     Animator p1Animator;
-    SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
 
     void Start()
     {
         GroundCheck();
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         p1Animator = GetComponent<Animator>();
         Physics2D.gravity *= gravityIncrease;
     }
@@ -31,7 +30,11 @@ public class P1Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GroundCheck();
 
+
+        
+        
         movement = Input.GetAxisRaw("Horizontal");
         
         if(Input.GetKeyDown(KeyCode.F))
@@ -47,17 +50,13 @@ public class P1Controller : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (isJumping) return;
-            if (!isJumping)
+            if (isOnGround && rb.velocity.y < 1)
             {
-                if(!isOnGround)return;
+                isJumping = true;
+                p1Animator.SetBool("Jump", true);
+                p1Animator.SetBool("IsOnGround", false);
+                Jump();
             }
-            
-            isJumping = true;
-            print("jumped");
-            p1Animator.SetBool("Jump", true);
-            p1Animator.SetBool("IsOnGround", false);
-
         }
 
         if (movement > 0)
@@ -74,44 +73,35 @@ public class P1Controller : MonoBehaviour
         {
             p1Animator.SetBool("Walk", false);
         }
+
+        if (isOnGround && isJumping && rb.velocity.y <= 0.001f)
+        {
+            isJumping = false;
+            p1Animator.SetBool("Jump", false);
+            p1Animator.SetBool("IsOnGround", true);
+
+        }
+
     }
 
     private void FixedUpdate()
     {
-        isOnGround = GroundCheck();
-        Debug.DrawRay(playerFoot1.position, Vector2.down *rayDistance, Color.green);
-        Debug.DrawRay(playerFoot2.position, Vector2.down * rayDistance, Color.green);
+        
         rb.velocity = new Vector2(movement * speed, rb.velocity.y);
     }
 
-    public bool GroundCheck()
+    public void GroundCheck()
     {
-        
+
         Vector2 direction = Vector2.down;
+        Physics2D.queriesHitTriggers = false;
         RaycastHit2D hit1 = Physics2D.Raycast(playerFoot1.position, direction, rayDistance, groundLayer);
         RaycastHit2D hit2 = Physics2D.Raycast(playerFoot2.position, direction, rayDistance, groundLayer);
 
-        if (hit1.collider != null || hit2.collider != null)
-        {          
-            isJumping = false;
-            return true;
-        }
+        Debug.DrawRay(playerFoot1.position, Vector2.down * rayDistance, Color.green);
+        Debug.DrawRay(playerFoot2.position, Vector2.down * rayDistance, Color.green);
 
-        else
-        {
-            return false;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<TagsController>().HasTag("Ground"))
-        {
-            if (!isOnGround) return;
-            print("e");
-            p1Animator.SetBool("Jump", false);
-            p1Animator.SetBool("IsOnGround", true);
-        }
+        isOnGround = hit1 || hit2;
     }
 
     public void Jump()
