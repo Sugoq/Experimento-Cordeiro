@@ -5,7 +5,8 @@ public class P2Controller : MonoBehaviour
     [SerializeField] CircleCollider2D circleCollider;
 
 
-    public float speed;
+    public float playerSpeed;
+    [SerializeField] float speed;
     public bool isPlayer1Turn;
     public bool isDragging;
     public bool canDrag;
@@ -17,6 +18,7 @@ public class P2Controller : MonoBehaviour
 
     void Start()
     {
+        speed = playerSpeed;
         rb = GetComponent<Rigidbody2D>();
         isPlayer1Turn = true;
     }
@@ -48,6 +50,7 @@ public class P2Controller : MonoBehaviour
         drag.SetParent(null);
         Invoke("EnableCollider", 0.2f);
         isDragging = false;
+        speed = playerSpeed;
     }
 
     void EnableCollider() => circleCollider.enabled = true;
@@ -64,7 +67,8 @@ public class P2Controller : MonoBehaviour
         transform.localPosition = Vector2.zero;
         transform.parent = null;
         drag.parent = transform;
-        drag.localPosition = Vector2.zero;       
+        drag.localPosition = Vector2.zero;
+        speed = drag.GetComponent<ObstaclesConfigs>().dragSpeed;
     }
 
     void FixedUpdate()
