@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class P2Controller : MonoBehaviour
 {
+    [SerializeField] CircleCollider2D circleCollider;
+
+
     public float speed;
     public bool isPlayer1Turn;
     public bool isDragging;
     public bool canDrag;
     GameObject currentTouchingObject;
+    Transform drag;
     Vector2 movement;
     Rigidbody2D rb;
 
@@ -27,33 +29,42 @@ public class P2Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             rb.velocity = Vector2.zero;
-            Drag();
             SwitchCharacter.instance.Switch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && canDrag)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Drag();
+            if (!isDragging) DragOn();
+            else DragOff();
         }
 
-
+        
     }
 
-    private void Drag()
+    private void DragOff()
+    {
+        print("e");
+
+        drag.SetParent(null);
+        Invoke("EnableCollider", 0.2f);
+        isDragging = false;
+    }
+
+    void EnableCollider() => circleCollider.enabled = true;
+
+    private void DragOn()
     {
         if (currentTouchingObject == null) return;
 
-        
-        if (!isDragging)
-        {
-            isDragging = true;
-            currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        }
-        else
-        {
-            isDragging = false;
-            currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-        }
+        print("Entrando no primeiro if");
+        isDragging = true;
+        circleCollider.enabled = false;
+        transform.SetParent(drag);
+        print(drag);
+        transform.localPosition = Vector2.zero;
+        transform.parent = null;
+        drag.parent = transform;
+        drag.localPosition = Vector2.zero;       
     }
 
     void FixedUpdate()
@@ -65,8 +76,8 @@ public class P2Controller : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<TagsController>().HasTag("Push"))
         {
-            canDrag = true;
             currentTouchingObject = collision.gameObject;
+            drag = currentTouchingObject.transform;
         }
     }
 
@@ -80,8 +91,6 @@ public class P2Controller : MonoBehaviour
                 currentTouchingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 currentTouchingObject = null;
             }
-            canDrag = false;
-            isDragging = false;
         }
 
     }

@@ -45,6 +45,7 @@ public class P1Controller : MonoBehaviour
         {
             p1Animator.SetBool("Walk", false);
             movement = 0;
+            rb.velocity = new Vector2(0, rb.velocity.y);
             SwitchCharacter.instance.Switch();
         }
 
