@@ -3,6 +3,7 @@ using UnityEngine;
 public class P2Controller : MonoBehaviour
 {
     [SerializeField] CircleCollider2D circleCollider;
+    [SerializeField] CircleCollider2D circleTrigger;
 
 
     public float playerSpeed;
@@ -58,6 +59,7 @@ public class P2Controller : MonoBehaviour
     private void DragOn()
     {
         if (currentTouchingObject == null) return;
+        if (drag.GetComponent<ObstaclesConfigs>().limitDrags && drag.GetComponent<ObstaclesConfigs>().dragTimes >= drag.GetComponent<ObstaclesConfigs>().maxDrags) return;
 
         print("Entrando no primeiro if");
         isDragging = true;
@@ -69,6 +71,7 @@ public class P2Controller : MonoBehaviour
         drag.parent = transform;
         drag.localPosition = Vector2.zero;
         speed = drag.GetComponent<ObstaclesConfigs>().dragSpeed;
+        drag.GetComponent<ObstaclesConfigs>().dragTimes++;
     }
 
     void FixedUpdate()
@@ -76,7 +79,7 @@ public class P2Controller : MonoBehaviour
         rb.velocity = movement * speed;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<TagsController>().HasTag("Push"))
         {
@@ -86,7 +89,7 @@ public class P2Controller : MonoBehaviour
     }
 
 
-    void OnTriggerExit2D(Collider2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<TagsController>().HasTag("Push"))
         {
