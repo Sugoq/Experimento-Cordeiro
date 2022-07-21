@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 67a1c85d60801544fa8d58d48f5d95f4
+guid: 4b5eadf88810d4b40bca928baa719116
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: modelo2_0
+      name: Foliage_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecceb3eb4e8d09b4990d9c9ed909f4d4
-      internalID: -1428992694
+      spriteID: 90b01421c4b3d0e4c919fd24f6f9e374
+      internalID: -1929200438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_1
+      name: Foliage_1
       rect:
         serializedVersion: 2
         x: 16
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 445626eb2544e5543a1be70c48830a1b
-      internalID: 1987624173
+      spriteID: 0c8c2cdc3a830294788475b41bd64063
+      internalID: -1304329295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_2
+      name: Foliage_2
       rect:
         serializedVersion: 2
         x: 32
@@ -172,35 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b88c154ca55590745a2a8fd362561b49
-      internalID: -683338430
+      spriteID: df70437388fc8be4a964c8a368d2a96d
+      internalID: 1134523101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 580d4d8e5e69da6418f2fc83aa41f98a
-      internalID: -1364055045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: modelo2_4
+      name: Foliage_3
       rect:
         serializedVersion: 2
         x: 0
@@ -214,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1eb7bf5135026bd40870859ed3203d5e
-      internalID: 946042579
+      spriteID: 77ce805493de37e45b02b23c845e518e
+      internalID: 2103535739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_5
+      name: Foliage_4
       rect:
         serializedVersion: 2
         x: 16
@@ -235,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a6174751286687488bb192e59b8ffd1
-      internalID: 1213807770
+      spriteID: c052f677cd3e89243b3d13aa7632f0f4
+      internalID: 555711408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_6
+      name: Foliage_5
       rect:
         serializedVersion: 2
         x: 32
@@ -256,35 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93ee4eed39741a3418531a8a005c2c35
-      internalID: -1423916173
+      spriteID: 60babcbdf9c0685478f2dff062599a5b
+      internalID: 1002314996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e02b4b63860b77946806c7a1f286e8bb
-      internalID: -864444177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: modelo2_8
+      name: Foliage_6
       rect:
         serializedVersion: 2
         x: 0
@@ -298,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a2ad58d37392e645ab802c90de35c5b
-      internalID: -523782342
+      spriteID: 61423a9b57418d948ba21c60c81f5ed5
+      internalID: -292862361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_9
+      name: Foliage_7
       rect:
         serializedVersion: 2
         x: 16
@@ -319,14 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d112d1e903262ed429641b23f02bf8d4
-      internalID: -2005606796
+      spriteID: 07f50ae6f209ec041ac8a99708dc1e0a
+      internalID: -1648344566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_10
+      name: Foliage_8
       rect:
         serializedVersion: 2
         x: 32
@@ -340,35 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 824f310140f343b468191921d949cb4a
-      internalID: 1425403599
+      spriteID: 830fb17f0db63d345ab59ab2ea4feed0
+      internalID: -383760569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_11
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cebf46aeaa764884a96cecc0eab99df1
-      internalID: 452919898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: modelo2_12
+      name: Foliage_9
       rect:
         serializedVersion: 2
         x: 0
@@ -382,14 +319,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71492980bf3230441b9256391e4d3db1
-      internalID: 1162897996
+      spriteID: 727283fe307f5264b82ee385b9edc81f
+      internalID: -530528916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_13
+      name: Foliage_10
       rect:
         serializedVersion: 2
         x: 16
@@ -403,14 +340,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 827bdfea4090179449a858ebc30aa7e5
-      internalID: -1156422572
+      spriteID: ffd77240fe1d1f64aa1f83c58046f325
+      internalID: 124405638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_14
+      name: Foliage_11
       rect:
         serializedVersion: 2
         x: 32
@@ -424,14 +361,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc63d38b2ef7a5e4896910d20e051a44
-      internalID: 2087480189
+      spriteID: c74737ff7e6718846891775b5a4d1c95
+      internalID: 58358960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: modelo2_15
+      name: Foliage_12
       rect:
         serializedVersion: 2
         x: 48
@@ -445,8 +382,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce094f5f89c20134eb77beda9c3449ea
-      internalID: -1608906389
+      spriteID: b2755bfb2dff52b418580157c1e132a8
+      internalID: 477593700
       vertices: []
       indices: 
       edges: []
@@ -462,22 +399,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      modelo2_14: 2087480189
-      modelo2_5: 1213807770
-      modelo2_9: -2005606796
-      modelo2_8: -523782342
-      modelo2_0: -1428992694
-      modelo2_11: 452919898
-      modelo2_6: -1423916173
-      modelo2_2: -683338430
-      modelo2_15: -1608906389
-      modelo2_3: -1364055045
-      modelo2_7: -864444177
-      modelo2_1: 1987624173
-      modelo2_12: 1162897996
-      modelo2_4: 946042579
-      modelo2_13: -1156422572
-      modelo2_10: 1425403599
+      Foliage_7: -1648344566
+      Foliage_0: -1929200438
+      Foliage_8: -383760569
+      Foliage_2: 1134523101
+      Foliage_11: 58358960
+      Foliage_4: 555711408
+      Foliage_10: 124405638
+      Foliage_3: 2103535739
+      Foliage_12: 477593700
+      Foliage_6: -292862361
+      Foliage_1: -1304329295
+      Foliage_5: 1002314996
+      Foliage_9: -530528916
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
