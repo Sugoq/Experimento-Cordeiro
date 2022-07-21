@@ -7,7 +7,10 @@ public class EndPlataform : MonoBehaviour
         if (collision.gameObject.CompareTag("P1"))
         {
             Debug.Log("voze paso de faze");
+            Invoke("CallNextLevel", 1f);
         }
     }
+
+    void CallNextLevel() => LevelManager.instance.NextLevel();
 
 }

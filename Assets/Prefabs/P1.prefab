@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 4591105537568938542}
   m_Layer: 6
   m_Name: P1
-  m_TagString: Untagged
+  m_TagString: P1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
   playerFoot1: {fileID: 4591105537427962437}
   playerFoot2: {fileID: 4591105536167249912}
   speed: 2
-  gravityIncrease: 2
+  gravityIncrease: -19.62
   jumpForce: 8
   groundLayer:
     serializedVersion: 2

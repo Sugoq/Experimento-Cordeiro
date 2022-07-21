@@ -49,7 +49,7 @@ public class P2Controller : MonoBehaviour
         print("e");
 
         drag.SetParent(null);
-        Invoke("EnableCollider", 0.2f);
+        Invoke("EnableCollider", 1f);
         isDragging = false;
         speed = playerSpeed;
     }

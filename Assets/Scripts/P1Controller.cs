@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class P1Controller : MonoBehaviour
 {
+    public static P1Controller instance;
+    
     [SerializeField] bool isOnGround;
     [SerializeField] Transform playerFoot1, playerFoot2;
     
@@ -14,17 +16,22 @@ public class P1Controller : MonoBehaviour
     public float rayDistance;
     float movement;
     public bool isJumping;
-    private bool jump;
     
     Animator p1Animator;
     Rigidbody2D rb;
+
+    private void Awake() => instance = this;
+
+    private void OnDestroy() => instance = null;
+
+
 
     void Start()
     {
         GroundCheck();
         rb = GetComponent<Rigidbody2D>();
         p1Animator = GetComponent<Animator>();
-        Physics2D.gravity *= gravityIncrease;
+        Physics2D.gravity = new Vector2(0, gravityIncrease);
     }
 
     // Update is called once per frame
@@ -108,6 +115,7 @@ public class P1Controller : MonoBehaviour
     public void Jump()
     {
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        print(Physics2D.gravity);
     }
 
 }
