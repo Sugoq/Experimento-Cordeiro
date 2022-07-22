@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2880712076973263171}
   - component: {fileID: 4877744643180835515}
   - component: {fileID: 956871896492718987}
-  - component: {fileID: 5364273777701289419}
   m_Layer: 3
   m_Name: NotPushable P
   m_TagString: Ground
@@ -149,20 +148,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Ground
-  - Push
---- !u!114 &5364273777701289419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4815400432533411563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15409763e15b51b47aff6508eae62e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragSpeed: 1
-  limitDrags: 1
-  maxDrags: 2
-  dragTimes: 0

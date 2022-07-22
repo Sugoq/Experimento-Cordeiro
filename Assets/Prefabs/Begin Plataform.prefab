@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 174646209616993508}
   - component: {fileID: 7360875732582934300}
   - component: {fileID: 2941222715517644332}
-  - component: {fileID: 8063577511108175980}
   m_Layer: 3
   m_Name: Begin Plataform
   m_TagString: Ground
@@ -149,20 +148,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Ground
-  - Push
---- !u!114 &8063577511108175980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7441515297025491788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15409763e15b51b47aff6508eae62e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragSpeed: 1
-  limitDrags: 1
-  maxDrags: 2
-  dragTimes: 0

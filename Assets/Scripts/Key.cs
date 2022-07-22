@@ -7,6 +7,11 @@ public class Key : MonoBehaviour
     public GameObject EndGate;
     public float blinkTIme;
 
+    private void Start()
+    {
+        EndGate = GameObject.Find("EndGate");
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("P1"))
