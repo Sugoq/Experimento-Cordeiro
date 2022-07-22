@@ -306,11 +306,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2241762483761774252, guid: 197da7f41ff6a024d923d346f47c3829, type: 3}
   m_PrefabInstance: {fileID: 4096724448163459654}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3764353470522416638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 929947862300602296, guid: 197da7f41ff6a024d923d346f47c3829, type: 3}
-  m_PrefabInstance: {fileID: 4096724448163459654}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4386821788874325857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -567,7 +562,7 @@ PrefabInstance:
     - target: {fileID: 8572414888180904081, guid: 32ea7d002112c1744a08f41e61571ee7, type: 3}
       propertyPath: EndGate
       value: 
-      objectReference: {fileID: 3764353470522416638}
+      objectReference: {fileID: 0}
     - target: {fileID: 8572414888180904081, guid: 32ea7d002112c1744a08f41e61571ee7, type: 3}
       propertyPath: blinkTIme
       value: 0.4

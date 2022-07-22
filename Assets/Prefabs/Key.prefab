@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndGate: {fileID: 0}
-  blinkTIme: 2
+  blinkTIme: 0.5
