@@ -1,24 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class P1Controller : MonoBehaviour
 {
     public static P1Controller instance;
     
-    [SerializeField] bool isOnGround;
     [SerializeField] Transform playerFoot1, playerFoot2;
+    Animator p1Animator;
+    Rigidbody2D rb;
+    
+    public int maxSwitchTimes;
+
     
     public float speed;
     public float gravityIncrease;
     public float jumpForce = 0;
-    public LayerMask groundLayer;
     public float rayDistance;
-    float movement;
+    public bool isOnGround;
     public bool isJumping;
     
-    Animator p1Animator;
-    Rigidbody2D rb;
+    private float movement;
+    private int switchTimes;
+    
+    public LayerMask groundLayer;
 
     private void Awake() => instance = this;
 
@@ -38,22 +41,17 @@ public class P1Controller : MonoBehaviour
     void Update()
     {
         GroundCheck();
-
-
-        
-        
         movement = Input.GetAxisRaw("Horizontal");
-        
-        if(Input.GetKeyDown(KeyCode.F))
-            p1Animator.SetBool("IsOnGround", true);
-
-
+              
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if (switchTimes >= maxSwitchTimes) return;
+            switchTimes++;
             p1Animator.SetBool("Walk", false);
             movement = 0;
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            
             SwitchCharacter.instance.Switch();
+            rb.velocity = new Vector2(movement, rb.velocity.y);
         }
 
         if (Input.GetButtonDown("Jump"))
@@ -61,35 +59,14 @@ public class P1Controller : MonoBehaviour
             if (isOnGround && rb.velocity.y < 1)
             {
                 isJumping = true;
-                p1Animator.SetBool("Jump", true);
-                p1Animator.SetBool("IsOnGround", false);
                 Jump();
             }
-        }
+        }       
+    }
 
-        if (movement > 0)
-        {
-            p1Animator.SetBool("Walk", true);
-            transform.localScale = Vector3.one;
-        }
-        else if (movement < 0)
-        {
-            p1Animator.SetBool("Walk", true);
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            p1Animator.SetBool("Walk", false);
-        }
-
-        if (isOnGround && isJumping && rb.velocity.y <= 0.001f)
-        {
-            isJumping = false;
-            p1Animator.SetBool("Jump", false);
-            p1Animator.SetBool("IsOnGround", true);
-
-        }
-
+    public void ChangeBodyType()
+    {
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
     private void FixedUpdate()
@@ -97,6 +74,8 @@ public class P1Controller : MonoBehaviour
         
         rb.velocity = new Vector2(movement * speed, rb.velocity.y);
     }
+
+
 
     public void GroundCheck()
     {

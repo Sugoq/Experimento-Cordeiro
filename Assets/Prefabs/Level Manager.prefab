@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9096235446827355734}
-  - component: {fileID: 9096235446827355733}
+  - component: {fileID: 2428278422908334269}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9096235446827355733
+--- !u!114 &2428278422908334269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 8277009769922911427, guid: eed7a4001d98e3646b29ce1e670a9d57, type: 3}
-  - {fileID: 6973728503191805717, guid: d01ac578471fe2b43b898fd3e048078c, type: 3}
+  - {fileID: 4424893150198347007, guid: 7263de5babefe3647bd3f77cc38fa9d6, type: 3}
+  - {fileID: 4424893150198347007, guid: 7263de5babefe3647bd3f77cc38fa9d6, type: 3}
